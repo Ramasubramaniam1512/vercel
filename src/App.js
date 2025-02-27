@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState, useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const Navbar = () => {
   const navVariants = {
@@ -452,6 +453,7 @@ const Contact = () => {
 const App = () => {
   return (
     <div className="relative">
+     <SpeedInsights/> 
       <Navbar />
       <HeroSection />
       <AboutMe />
