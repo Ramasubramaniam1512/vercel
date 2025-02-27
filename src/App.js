@@ -5,6 +5,7 @@ import { useState, useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
 
 const Navbar = () => {
   const navVariants = {
@@ -453,6 +454,7 @@ const Contact = () => {
 const App = () => {
   return (
     <div className="relative">
+     <Analytics/>
      <SpeedInsights/> 
       <Navbar />
       <HeroSection />
