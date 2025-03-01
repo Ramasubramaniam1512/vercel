@@ -73,58 +73,65 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="hero" className="h-screen flex flex-col justify-center items-center bg-gray-800 text-white relative overflow-hidden">
+    <section
+      id="hero"
+      className="h-screen flex flex-col justify-center items-center bg-gray-800 text-white relative overflow-hidden"
+    >
       <Particles
         id="tsparticles"
         init={particlesInit}
         options={{
           background: { color: { value: "transparent" } },
           fpsLimit: 60,
+          fullScreen: { enable: false },
           interactivity: {
             events: { onHover: { enable: true, mode: "repulse" } },
-            modes: { repulse: { distance: 100, duration: 0.4 } },
+            modes: { repulse: { distance: 80, duration: 0.4 } },
           },
           particles: {
             color: { value: "#60A5FA" },
-            links: { color: "#60A5FA", distance: 100, enable: true, opacity: 0.5 },
+            links: { color: "#60A5FA", distance: 80, enable: true, opacity: 0.5 },
             move: { direction: "none", enable: true, speed: 1 },
-            number: { density: { enable: true, area: 600 }, value: 50 },
+            number: { density: { enable: true, area: 600 }, value: 30 },
             opacity: { value: 0.5 },
             shape: { type: "circle" },
             size: { value: { min: 1, max: 2 } },
           },
+          detectRetina: true,
         }}
-        className="absolute inset-0"
+        className="absolute inset-0 w-full h-full"
       />
-      <motion.h1
-        initial={{ opacity: 0, y: 100, scale: 0.8 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut", type: "spring", stiffness: 80 }}
-        className="text-3xl sm:text-5xl font-bold z-10 px-4"
-      >
-        Hello, I'm a Cybersecurity Engineer
-      </motion.h1>
-      <motion.p
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
-        className="text-lg sm:text-xl mt-4 z-10 px-4"
-      >
-        Passionate about security and ethical hacking
-      </motion.p>
-      <Link to="contact" smooth={true} duration={500}>
-        <motion.button
-          variants={buttonVariants}
-          whileHover="hover"
-          whileTap="tap"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="mt-6 px-6 py-3 bg-blue-500 text-white rounded-lg cursor-pointer z-10 text-base sm:text-lg"
+      <div className="w-full max-w-md px-4 z-10 text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 100, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut", type: "spring", stiffness: 80 }}
+          className="text-3xl sm:text-5xl font-bold"
         >
-          Contact Me
-        </motion.button>
-      </Link>
+          Hello, I'm a Cybersecurity Engineer
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
+          className="text-lg sm:text-xl mt-4"
+        >
+          Passionate about security and ethical hacking
+        </motion.p>
+        <Link to="contact" smooth={true} duration={500}>
+          <motion.button
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="mt-6 px-6 py-3 bg-blue-500 text-white rounded-lg cursor-pointer text-base sm:text-lg"
+          >
+            Contact Me
+          </motion.button>
+        </Link>
+      </div>
     </section>
   );
 };
@@ -147,7 +154,7 @@ const AboutMe = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="max-w-2xl w-full z-10"
+        className="w-full max-w-md z-10"
       >
         <motion.h2 variants={itemVariants} className="text-2xl sm:text-4xl font-bold text-blue-400">
           About Me
@@ -197,7 +204,7 @@ const Projects = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="w-full max-w-3xl space-y-10"
+        className="w-full max-w-md space-y-10"
       >
         <motion.div variants={projectVariants} className="bg-gray-800 p-4 sm:p-6 rounded-lg shadow-lg">
           <motion.h2
@@ -309,7 +316,7 @@ const Experience = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="max-w-5xl w-full grid grid-cols-1 sm:grid-cols-2 gap-8 z-10"
+        className="w-full max-w-md grid grid-cols-1 sm:grid-cols-2 gap-8 z-10"
       >
         <motion.div variants={cardVariants} className="text-left">
           <motion.h2
@@ -367,7 +374,7 @@ const Achievements = () => {
         whileInView="visible"
         viewport={{ once: true }}
         variants={listVariants}
-        className="max-w-3xl w-full z-10"
+        className="w-full max-w-md z-10"
       >
         <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl font-bold mb-4">
           Achievements & Certifications
@@ -419,7 +426,7 @@ const Contact = () => {
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.3 }}
-        className="max-w-3xl w-full z-10"
+        className="w-full max-w-md z-10"
       >
         <motion.h2 variants={textVariants} className="text-2xl sm:text-3xl font-bold mb-4">
           Contact Me
